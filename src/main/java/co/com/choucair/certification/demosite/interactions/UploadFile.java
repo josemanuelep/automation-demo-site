@@ -31,7 +31,7 @@ public class UploadFile implements Interaction {
     @Override
     public <T extends Actor> void performAs(T actor) {
         try {
-            File fileRelative = new File(".\\src\\main\\resources\\testFiles\\photo.png");
+            File fileRelative = new File("D:\\Dev projects\\demo-site\\src\\test\\resources\\testFiles\\jpg.jpg");
             Path path = Paths.get(fileRelative.getCanonicalPath());
             actor.attemptsTo(Upload.theFile(path).to(obj));
         } catch (NoSuchElementException e) {

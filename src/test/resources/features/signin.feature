@@ -9,8 +9,8 @@
     Scenario: Signin
       Given Jose wants log on Automation Demo
       When Jose register in the page
-        | fname       | lname     | address          | email            | phone      | gender | hobbies | languajes | skills  | country | date       | password |
-        | Jose Manuel | Echeverri | Calle 100 # 25-5 | jose@hotmail.com | 3225456644 | Male   | Movies  | Catalan   | AutoCAD | Angola  | 26/6/1988 | 123456*  |
+        | fname       | lname     | address          | email            | phone      | gender | hobbies | languajes | skills | country | date            | password |
+        | Jose Manuel | Echeverri | Calle 100 # 25-5 | jose@hotmail.com | 3225456644 | Male   | Movies  | Catalan   | CSS    | Angola  | 26/January/1988 | 123456*  |
       Then He should see " - Double Click on Edit Icon to EDIT the Table Row."
 
 

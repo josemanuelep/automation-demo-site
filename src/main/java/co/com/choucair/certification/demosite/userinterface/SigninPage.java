@@ -12,7 +12,7 @@ public class SigninPage {
     public static final Target INPUT_GENDERS = Target.the("").located(By.xpath("//input[@type='radio']"));
     public static final Target INPUT_HOBBIES_1 = Target.the("").located(By.id("checkbox1"));
     public static final Target LANGUAGES_MULTI_SELECT = Target.the("").located(By.id("msdd"));
-    public static final Target LANGUAGES_LIST = Target.the("").located(By.xpath("//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content ui-corner-all']/li"));
+    public static final Target LANGUAGES_LIST = Target.the("").located(By.xpath("//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content ui-corner-all']"));
     public static final Target SELECT_SKILLS = Target.the("").located(By.id("Skills"));
     public static final Target SELECT_COUNTRY = Target.the("").located(By.id("countries"));
     public static final Target SELECT_YEAR = Target.the("").located(By.id("yearbox"));

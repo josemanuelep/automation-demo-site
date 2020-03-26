@@ -7,6 +7,8 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.MoveMouse;
 import net.serenitybdd.screenplay.questions.targets.TargetText;
 import net.serenitybdd.screenplay.targets.Target;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
@@ -19,18 +21,17 @@ public class SelectList implements Interaction {
         this.list = list;
     }
 
-    public static SelectList theOption(String option,Target list){
-        return new SelectList(option,list);
+    public static SelectList theOption(String option, Target list) {
+        return new SelectList(option, list);
     }
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        List<WebElementFacade> options = this.list.resolveAllFor(actor);
-        System.out.println("Size "+ options.size());
-        for (WebElementFacade elemt : options) {
-            if (elemt.getText().equals(this.option))
-                MoveMouse.to(elemt);
-                Click.on(elemt);
+        List<WebElement> options = this.list.resolveFor(actor).findElements(By.tagName("li"));
+        for (WebElement elemt : options) {
+            if (elemt.getText().equals(this.option)) {
+                elemt.findElement(By.tagName("a")).click();
+            }
         }
     }
 }
