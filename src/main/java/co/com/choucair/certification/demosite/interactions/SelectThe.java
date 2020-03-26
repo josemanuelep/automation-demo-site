@@ -26,7 +26,7 @@ public class SelectThe implements Interaction {
     public <T extends Actor> void performAs(T actor) {
         List<WebElementFacade> options = this.option.resolveAllFor(actor);
         for (WebElementFacade elemt : options) {
-            if (elemt.getValue()==this.value)
+            if (elemt.getValue().equals(this.value))
                 Click.on(elemt);
         }
     }

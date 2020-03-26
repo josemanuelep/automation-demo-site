@@ -2,18 +2,22 @@ package co.com.choucair.certification.demosite.tasks;
 
 import co.com.choucair.certification.demosite.interactions.SelectList;
 import co.com.choucair.certification.demosite.interactions.SelectThe;
+import co.com.choucair.certification.demosite.interactions.UploadFile;
 import co.com.choucair.certification.demosite.model.User;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.actions.EnterValue;
 import net.serenitybdd.screenplay.actions.SelectFromOptions;
+import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import java.util.List;
 
 import static co.com.choucair.certification.demosite.userinterface.SigninPage.*;
 import static co.com.choucair.certification.demosite.util.Constants.INDEX_0;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.*;
 
 public class Register implements Task {
     private List<User> users;
@@ -33,14 +37,20 @@ public class Register implements Task {
                 Enter.theValue(users.get(INDEX_0).getAddress()).into(INPUT_ADDRESS),
                 Enter.theValue(users.get(INDEX_0).getEmail()).into(INPUT_EMAIL),
                 Enter.theValue(users.get(INDEX_0).getPhone()).into(INPUT_PHONE),
-                SelectThe.option(users.get(INDEX_0).getGender(),INPUT_GENDERS),
+                Click.on(INPUT_GENDERS.resolveAllFor(actor).get(0)),
+//                SelectThe.option(users.get(INDEX_0).getGender(),INPUT_GENDERS),
                 Click.on(INPUT_HOBBIES_1),
-                Click.on(LANGUAGES_MULTI_SELECT),
-                SelectFromOptions.byVisibleText(users.get(INDEX_0).getLanguajes()).from(LANGUAGES_LIST),
-//                SelectList.theOption(users.get(INDEX_0).getLanguajes(),LANGUAGES_LIST)
-                SelectFromOptions.byVisibleText(users.get(INDEX_0).getSkills()).from(SELECT_SKILLS),
-                SelectFromOptions.byVisibleText(users.get(INDEX_0).getCountry()).from(SELECT_COUNTRY)
-                git co
+//                Click.on(LANGUAGES_MULTI_SELECT),
+//                SelectList.theOption(users.get(INDEX_0).getLanguajes(),LANGUAGES_LIST),
+//                WaitUntil.the(SELECT_SKILLS, isClickable()),
+//                SelectFromOptions.byVisibleText(users.get(INDEX_0).getSkills()).from(SELECT_SKILLS),
+                SelectFromOptions.byValue(users.get(INDEX_0).getCountry()).from(SELECT_COUNTRY),
+                SelectFromOptions.byValue(users.get(INDEX_0).getYear()).from(SELECT_YEAR),
+                SelectFromOptions.byValue(users.get(INDEX_0).getMonth()).from(SELECT_MONTH),
+                SelectFromOptions.byValue(users.get(INDEX_0).getDay()).from(SELECT_DAY),
+                Enter.theValue(users.get(INDEX_0).getPassword()).into(INPUT_PASS),
+                Enter.theValue(users.get(INDEX_0).getPassword()).into(INPUT_PASS_2),
+                UploadFile.of(UPLOAD_PHOTO)
 
         );
     }

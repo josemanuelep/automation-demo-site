@@ -13,6 +13,7 @@ public class User {
     private String country;
     private String date;
     private String password;
+    private String[] dates;
 
     public String getFname() {
         return fname;
@@ -56,7 +57,22 @@ public class User {
 
     public String getDate() {
         return date;
+
     }
+
+    public String getDay() {
+        dates = date.split("/");
+        return dates[0];
+    }
+    public String getMonth() {
+        dates = date.split("/");
+        return dates[1];
+    }
+    public String getYear() {
+        dates = date.split("/");
+        return dates[2];
+    }
+
 
     public String getPassword() {
         return password;
