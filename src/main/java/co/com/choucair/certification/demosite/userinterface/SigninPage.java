@@ -9,7 +9,7 @@ public class SigninPage {
     public static final Target INPUT_ADDRESS = Target.the("").located(By.xpath("//textarea[@class='form-control ng-pristine ng-untouched ng-valid']"));
     public static final Target INPUT_EMAIL = Target.the("").located(By.xpath("//input[@type='email']"));
     public static final Target INPUT_PHONE = Target.the("").located(By.xpath("//input[@type='tel']"));
-    public static final Target INPUT_GENDERS = Target.the("").located(By.xpath("//input[@type='radio']"));
+    public static final Target INPUT_GENDERS = Target.the("").located(By.name("radiooptions"));
     public static final Target INPUT_HOBBIES_1 = Target.the("").located(By.id("checkbox1"));
     public static final Target LANGUAGES_MULTI_SELECT = Target.the("").located(By.id("msdd"));
     public static final Target LANGUAGES_LIST = Target.the("").located(By.xpath("//ul[@class='ui-autocomplete ui-front ui-menu ui-widget ui-widget-content ui-corner-all']"));
@@ -22,5 +22,6 @@ public class SigninPage {
     public static final Target INPUT_PASS_2 = Target.the("").located(By.id("secondpassword"));
     public static final Target UPLOAD_PHOTO = Target.the("").located(By.id("imagesrc"));
     public static final Target BUTTON_SUBMIT = Target.the("").located(By.id("submitbtn"));
+    public static final Target HEADER_SIGNIN = Target.the("").located(By.xpath("//h4[1]"));
 
 }

@@ -2,6 +2,7 @@ package co.com.choucair.certification.demosite.stepsdefinitions;
 
 
 import co.com.choucair.certification.demosite.model.User;
+import co.com.choucair.certification.demosite.questions.IsSignin;
 import co.com.choucair.certification.demosite.tasks.OpenThe;
 import co.com.choucair.certification.demosite.tasks.Register;
 import cucumber.api.DataTable;
@@ -13,6 +14,7 @@ import java.util.List;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class SigninSteps {
     private String actorName = "Jose";
@@ -29,8 +31,8 @@ public class SigninSteps {
     }
 
     @Then("^He should see \"([^\"]*)\"$")
-    public void heShouldSee(String arg1) {
-
+    public void heShouldSee(String header) {
+        theActorInTheSpotlight().should(seeThat(IsSignin.inPage(header)));
     }
 
 }

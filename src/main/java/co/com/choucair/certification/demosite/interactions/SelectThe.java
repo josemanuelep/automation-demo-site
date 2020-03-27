@@ -5,6 +5,8 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Interaction;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.targets.Target;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
@@ -24,10 +26,10 @@ public class SelectThe implements Interaction {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        List<WebElementFacade> options = this.option.resolveAllFor(actor);
-        for (WebElementFacade elemt : options) {
-            if (elemt.getValue().equals(this.value))
-                Click.on(elemt);
+        List<WebElement> options =this.option.resolveFor(actor).findElements(By.tagName("input"));
+        for (WebElement elemt : options) {
+            if (elemt.getAttribute("value").equals(this.value))
+                elemt.click();
         }
     }
 }

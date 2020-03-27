@@ -41,13 +41,15 @@ public class Register implements Task {
                 Click.on(INPUT_GENDERS.resolveAllFor(actor).get(INDEX_0)),
                 SelectFromOptions.byValue(users.get(INDEX_0).getSkills()).from(SELECT_SKILLS),
                 SelectFromOptions.byValue(users.get(INDEX_0).getCountry()).from(SELECT_COUNTRY),
-                Scroll.to(BUTTON_SUBMIT),
                 SelectFromOptions.byValue(users.get(INDEX_0).getYear()).from(SELECT_YEAR),
                 SelectFromOptions.byValue(users.get(INDEX_0).getMonth()).from(SELECT_MONTH),
                 SelectFromOptions.byValue(users.get(INDEX_0).getDay()).from(SELECT_DAY),
                 Enter.theValue(users.get(INDEX_0).getPassword()).into(INPUT_PASS),
                 Enter.theValue(users.get(INDEX_0).getPassword()).into(INPUT_PASS_2),
-                UploadFile.of(UPLOAD_PHOTO)
+                UploadFile.of(UPLOAD_PHOTO),
+                Scroll.to(BUTTON_SUBMIT),
+                JavaScriptClick.on(BUTTON_SUBMIT),
+                WaitUntil.the(HEADER_SIGNIN, isVisible()).forNoMoreThan(10).seconds()
         );
     }
 }
